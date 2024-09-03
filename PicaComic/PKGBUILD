@@ -15,12 +15,10 @@ makedepends=()
 source=(
   ${pkgname}-${pkgver}.tar.gz::"${url}/archive/refs/tags/v${pkgver}.tar.gz"
   ${pkgname}.desktop
-  ${pkgname}.sh
 )
 sha256sums=(
   '5bc0cae5340a6a5a8a6fb2866e62d3efe971dcafed2306114e3ec76ebd367257'
   '2788b2695e891a58c0a3f4326cb4be49124f3a0cb199eec21cf34c7f036e569d'
-  'bd91af31284e881119d5ae70e219ddc449f57ac7fa1abdc898af1fba79b39100'
 )
 
 build() {
@@ -32,13 +30,11 @@ build() {
 package() {
   cd ${srcdir}/PicaComic-${pkgver}/build/linux/x64/release/bundle
   find ./data -type f -exec \
-                 install -Dm644 {} ${pkgdir}/usr/local/lib/${pkgname}/{} \;
+                 install -Dm644 {} ${pkgdir}/usr/lib/${pkgname}/{} \;
 
-  install -Dm755 ./lib/* -t ${pkgdir}/usr/local/lib/${pkgname}/lib/
-
-  install -Dm755 ./pica_comic ${pkgdir}/usr/local/lib/pica-comic/pica_comic
-
+  install -Dm755 ./lib/* -t ${pkgdir}/usr/lib/${pkgname}/lib/
+  install -Dm755 ./pica_comic ${pkgdir}/usr/lib/${pkgname}/pica_comic
   install -Dm644 ${srcdir}/${pkgname}.desktop -t ${pkgdir}/usr/share/applications
   install -Dm644 ./data/flutter_assets/images/app_icon.png ${pkgdir}/usr/share/pixmaps/picacomic.png
-  install -Dm755 ${srcdir}/${pkgname}.sh ${pkgdir}/usr/bin/${pkgname}
+  ln -s /usr/lib/${pkgname}/pica_comic ${pkgdir}/usr/bin/${pkgname}
 }
