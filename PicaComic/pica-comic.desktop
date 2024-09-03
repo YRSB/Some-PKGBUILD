@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=PicaComic
+Comment=PicaComic
+Comment[zh_CN]=哔咔漫画
+Exec=/usr/bin/pica-comic
+Icon=picacomic
+GenericName=A comic app with multiple sources built with flutter.
+keywords=PicaComic
+Categories=Graphics;Viewer;
+Terminal=false
