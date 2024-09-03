@@ -36,5 +36,6 @@ package() {
   install -Dm755 ./pica_comic ${pkgdir}/usr/lib/${pkgname}/pica_comic
   install -Dm644 ${srcdir}/${pkgname}.desktop -t ${pkgdir}/usr/share/applications
   install -Dm644 ./data/flutter_assets/images/app_icon.png ${pkgdir}/usr/share/pixmaps/picacomic.png
+  mkdir -p ${pkgdir}/usr/bin
   ln -s /usr/lib/${pkgname}/pica_comic ${pkgdir}/usr/bin/${pkgname}
 }
