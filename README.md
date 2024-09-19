@@ -1,5 +1,5 @@
 # Some-PKGBUILD
-Some PKGBUILDs (I wrote) for programs not in aur.
+Some PKGBUILDs (I wrote) for pkg not in aur.
 ## Usage
 1. clone this repo
 2. `cd path/to/pkgbuild-dir`
