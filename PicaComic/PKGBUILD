@@ -1,7 +1,7 @@
 # Maintainer: YRSB <z1knktbkz@mozmail.com>
 
 pkgname=pica-comic
-pkgver=4.1.6
+pkgver=4.1.7
 pkgrel=1
 pkgdesc="A comic app with multiple sources built with flutter."
 arch=('x86_64')
@@ -14,7 +14,7 @@ source=(
   ${pkgname}.desktop
 )
 sha256sums=(
-  'eb10a66c20b8947011ce680101bfc0e9867a1556ab6ed43a995d9296712220f2'
+  '43a97f9defc290645abfc13bb49ee8ecda840362aac3c2635e96fdc5c838e9af'
   '2788b2695e891a58c0a3f4326cb4be49124f3a0cb199eec21cf34c7f036e569d'
 )
 
