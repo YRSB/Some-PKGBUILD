@@ -24,7 +24,7 @@ build() {
   export FVM_CACHE_PATH="./fvm-cache"
   # flutter packages get
   fvm install stable --setup
-  fvm use stable
+  fvm use stable -n
   fvm flutter --no-version-check pub get
   fvm flutter build linux --release
 }
