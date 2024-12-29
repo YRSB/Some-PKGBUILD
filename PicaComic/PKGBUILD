@@ -1,27 +1,31 @@
 # Maintainer: YRSB <z1knktbkz@mozmail.com>
 
 pkgname=pica-comic
-pkgver=4.2.0
+pkgver=4.2.1
 pkgrel=1
 pkgdesc="A comic app with multiple sources built with flutter."
 arch=('x86_64')
 url="https://github.com/Pacalini/PicaComic"
 license=('MIT')
 depends=('webkit2gtk-4.1')
-makedepends=('flutter')
+makedepends=('fvm')
 source=(
   ${pkgname}-${pkgver}.tar.gz::"${url}/archive/refs/tags/v${pkgver}.tar.gz"
   ${pkgname}.desktop
 )
 sha256sums=(
-  'e61d328ccaf25d63e9ca3f5e2033b81591409090f30030eaec9c26bbe8096cb3'
+  '083e0af210501ec63ecd01a7566f336e13ca92b26706b59875d30063b15bdf34'
   '2788b2695e891a58c0a3f4326cb4be49124f3a0cb199eec21cf34c7f036e569d'
 )
 
 build() {
   cd ${srcdir}/PicaComic-${pkgver}
+  mkdir fvm-cache
+  export FVM_CACHE_PATH="./fvm-cache"
   # flutter packages get
-  flutter build linux --release
+  fvm install stable --setup
+  fvm flutter --no-version-check pub get
+  fvm flutter build linux --release
 }
 
 package() {
